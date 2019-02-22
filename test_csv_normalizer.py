@@ -32,4 +32,4 @@ def test_parse_notes():
 	assert csvn.parse_notes(unicode_notes) == "This is some Unicode right h�xxx ü ¡! 😀"
 
 def test_parse_duration():
-	assert csvn.parse_duration(duration_string) == 1.01
+	assert csvn.parse_duration(duration_string) == '1.100'
