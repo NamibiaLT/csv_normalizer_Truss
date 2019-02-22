@@ -8,3 +8,9 @@ def test_open_and_read_csv():
 
 def test_parse_datetime():
 		assert csvn.parse_datetime(sample_file) == data_frame['Timestamp']
+
+def test_format_zipcodes():
+	assert csvn.format_zipcodes(sample_file)[1] == '00001'
+
+def test_convert_names_colmn_to_uppercase():
+	assert csvn.convert_names_colmn_to_uppercase(sample_file)[0] == 'MONKEY ALBERTO'
