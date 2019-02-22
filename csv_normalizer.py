@@ -93,18 +93,15 @@ def parse_address(address):
 	'''
 	Address column is passed in as is
 	Take into account commas within quoted strings as part of addresses
-	Wrap address in quotes, if they are not there
+	Wrap address in quotes
 
 	Exceptions:
 	except unicode validation
 
 	Return:
-	Addresses
+	Address
 	'''
-	if ',' in address:
-		return ('"' + address + '"')
-	else:
-		address
+	return ('"' + address + '"') if ',' in address else address
 
 def parse_notes(notes):
 	'''
