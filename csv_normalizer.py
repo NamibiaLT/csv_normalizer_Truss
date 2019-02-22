@@ -41,11 +41,14 @@ def parse_timestamp(timestamp_str):
 	Return:
 	Iso-formatted timestamp w/ easter timezone
 	'''
+	eastern = timezone('US/Eastern')
+	pacific = timezone('US/Pacific')
+	timestamp = datetime.strptime(timestamp_str, '%m/%d/%y %I:%M:%S %p')
+	timestamp_pacific = pacific.localize(timestamp)
+	timestamp_eastern = timestamp_pacific.astimezone(eastern)
+	timestamp_iso = timestamp_eastern.isoformat()
 
-	# datetime_obj_naive = pd.to_datetime(data_frame['Timestamp'],errors='coerce')
-
-	# datetime_obj_eastern = pytz.timezone('US/Eastern').localize(datetime_obj_naive)
-	# # iso_formatted_eastern = datetime_obj_eastern.isoformat()
+	return timestamp_iso
 
 def format_zipcodes(data_frame):
 	'''
