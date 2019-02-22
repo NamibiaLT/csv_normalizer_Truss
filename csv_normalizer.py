@@ -73,6 +73,23 @@ def convert_names_colmn_to_uppercase(fullname):
 	'''
 	return fullname.upper()
 
+def parse_address(address):
+	'''
+	Address column is passed in as is
+	Take into account commas within quoted strings as part of addresses
+	Wrap address in quotes, if they are not there
+
+	Exceptions:
+	except unicode validation
+
+	Return:
+	Addresses
+	'''
+	if ',' in address:
+		return ('"' + address + '"')
+	else:
+		address
+
 def main():
 	'''
 	Converts the csv and prints out stdin CSV to the stdout
@@ -90,6 +107,7 @@ def main():
 		out_row[headers.index('Timestamp')] = parse_timestamp(row['Timestamp'])
 		out_row[headers.index('ZIP')] = parse_zipcode(row['ZIP'])
 		out_row[headers.index('FullName')] =  parse_fullname(row['FullName'])
+		out_row[headers.index('Address')] = parse_address(row['Address'])
 
 if __name__ == "__main__":
     main()
