@@ -72,9 +72,23 @@ def convert_names_colmn_to_uppercase(data_frame):
 		name_column.append(str(name).upper)
 	print(name_column)
 
+def main():
+	'''
+	Converts the csv and prints out stdin CSV to the stdout
+	It also prints out headers and iterates through each row in file
+	'''
+	contents = read_stdin_as_dataframe()
 
-# open_and_read_csv('sample.csv')
-# format_zipcodes(data_frame)
-# convert_names_colmn_to_uppercase(data_frame)
-# # parse_datetime(data_frame)
+	# Get all headers:
+	headers = list(contents)
+	print(*headers, sep=',')
 
+	# With the index iterate through each row:
+	for index, row in contents.iterrows():
+		out_row = list(row)
+		out_row[headers.index('Timestamp')] = parse_timestamp(row['Timestamp'])
+		out_row[headers.index('ZIP')] = parse_zipcode(row['ZIP'])
+		out_row[headers.index('FullName')] =  parse_fullname(row['FullName'])
+
+if __name__ == "__main__":
+    main()
