@@ -6,7 +6,7 @@ broken_sample_file = 'sample-with-broken-utf8.csv'
 def test_read_stdin_as_dataframe():
 	assert csvn.read_stdin_as_dataframe(broken_sample_file) == data_frame
 
-def test_parse_datetime():
+def test_parse_timestamp():
 		assert csvn.parse_datetime(sample_file) == data_frame['Timestamp']
 
 def test_format_zipcodes():
