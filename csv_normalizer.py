@@ -73,7 +73,7 @@ def fails_cleansiness_checks(headers, row):
 	u"\uFFFD" is the python encoding for the unicode replacement character
 	'''
 	for header, value in zip(headers, row):
-		if isinstance(val, str) and header != 'Notes' and u"\uFFFD" in val:
+		if isinstance(value, str) and header != 'Notes' and u"\uFFFD" in value:
 			return True
 	return False
 
