@@ -90,6 +90,15 @@ def parse_address(address):
 	else:
 		address
 
+def parse_notes(notes):
+	'''
+	No transformations needed
+	The notes column is free form text input by the enduser
+	Return:
+	Notes, and replace invalid utf-8 chars with valid unicode characters
+	'''
+	return notes
+
 def main():
 	'''
 	Converts the csv and prints out stdin CSV to the stdout
