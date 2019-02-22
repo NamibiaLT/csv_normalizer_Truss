@@ -61,6 +61,22 @@ def format_zipcodes(zipcode):
 
 	return "%05i" % zipcode
 
+def fails_cleansiness_checks(headers, row):
+	'''
+	When a character is invalid, it wll be replaced with
+	the Unicode Replacement Character.
+	If that replacement makes data invalid (for example,
+	because it turns a date field into something unparseable),
+	print a warning to `stderr` and drop the row from your output.
+
+	Note:
+	u"\uFFFD" is the python encoding for the unicode replacement character
+	'''
+	for header, value in zip(headers, row):
+		if isinstance(val, str) and header != 'Notes' and u"\uFFFD" in val:
+			return True
+	return False
+
 def convert_names_colmn_to_uppercase(fullname):
 	'''
 	Convert names in names column to upper case
@@ -112,6 +128,10 @@ def main():
 
 	# With the index iterate through each row:
 	for index, row in contents.iterrows():
+		if fails_cleansiness_checks(headers, row):
+			sys.stderr.write("WARNING: Bad unicode outside of the notes column")
+			continue
+
 		out_row = list(row)
 		out_row[headers.index('Timestamp')] = parse_timestamp(row['Timestamp'])
 		out_row[headers.index('ZIP')] = format_zipcodes(row['ZIP'])
