@@ -27,7 +27,7 @@ def read_stdin_as_dataframe():
 
 	return data_frame
 
-def parse_datetime(timestamp_str):
+def parse_timestamp(timestamp_str):
 	'''
 	Format timestamp column to ISO-8601
 	The timestamp column is in US/Pacific and will be
