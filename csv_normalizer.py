@@ -114,9 +114,10 @@ def main():
 	for index, row in contents.iterrows():
 		out_row = list(row)
 		out_row[headers.index('Timestamp')] = parse_timestamp(row['Timestamp'])
-		out_row[headers.index('ZIP')] = parse_zipcode(row['ZIP'])
-		out_row[headers.index('FullName')] =  parse_fullname(row['FullName'])
+		out_row[headers.index('ZIP')] = format_zipcodes(row['ZIP'])
+		out_row[headers.index('FullName')] =  convert_names_colmn_to_uppercase(row['FullName'])
 		out_row[headers.index('Address')] = parse_address(row['Address'])
+		out_row[headers.index('Notes')] = parse_notes(row['Notes'])
 
 if __name__ == "__main__":
     main()
