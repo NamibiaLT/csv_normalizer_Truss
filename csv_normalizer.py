@@ -17,6 +17,9 @@ def read_stdin_as_dataframe():
 	and the row will be dropped from output
 
 	Pandas is used because it handles address commas
+
+	Return:
+	Pandas dataframe
 	'''
 	raw_data = sys.stdin.detach().read()
 	decoded_data = raw_data.decode('utf-8', 'replace')
@@ -24,17 +27,47 @@ def read_stdin_as_dataframe():
 
 	return data_frame
 
-def parse_datetime(data_frame):
+def parse_datetime(timestamp_str):
 	'''
-	Format timestamp column to ISO-8601 and
-	convert timestamp to US/Eastern
+	Format timestamp column to ISO-8601
+	The timestamp column is in US/Pacific and will be
+	converted to US/Eastern
+
+	Assumptions:
+	The input document is in UTF-8
+	Any times that are missing timezone information are in US/Pacific.
+	Sample data may include timevariants that need to be handled: 10/20/19 1:00:00 AM
+
+	Return:
+	Iso-formatted timestamp w/ easter timezone
 	'''
 
-	datetime_obj_naive = pd.to_datetime(data_frame['Timestamp'],errors='coerce')
+	# datetime_obj_naive = pd.to_datetime(data_frame['Timestamp'],errors='coerce')
 
-	datetime_obj_eastern = pytz.timezone('US/Eastern').localize(datetime_obj_naive)
-	# iso_formatted_eastern = datetime_obj_eastern.isoformat()
+	# datetime_obj_eastern = pytz.timezone('US/Eastern').localize(datetime_obj_naive)
+	# # iso_formatted_eastern = datetime_obj_eastern.isoformat()
 
+def format_zipcodes(data_frame):
+	'''
+	Format ZIP codes as 5 digits.
+	If there are less than 5 digits, add 0 as the prefix.
+	'''
+	zipcode_lst = []
+
+	for row in data_frame['ZIP']:
+		zipcode_lst.append((str(row).zfill(5)))
+	return zipcode_lst
+
+	updated_zipcode_lst = [int(i) for i in zipcode_lst]
+
+def convert_names_colmn_to_uppercase(data_frame):
+	'''
+	Conver names in names column to upper case
+	'''
+	name_column = []
+	for name in data_frame['FullName']:
+		name_column.append(str(name).upper)
+	print(name_column)
 
 
 # open_and_read_csv('sample.csv')
