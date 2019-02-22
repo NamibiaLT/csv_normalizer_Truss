@@ -6,9 +6,10 @@ zipcode = 1
 fullname = 'Monkey Alberto'
 timestamp = '10/20/19 1:00:00 AM'
 address = "100 Hoover Dr., Sampletown, NH"
-no_commas_address = "Hey there this is a town"
+missing_commas_address = "Hey there this is a town"
 notes = "I am the very model of a modern major general"
-unicode_notes = "I like Emoji! 🍏🍎😍"
+unicode_notes = "This is some Unicode right h�xxx ü ¡! 😀"
+duration_string = "00:00:01.100"
 
 def test_read_stdin_as_dataframe():
 	assert csvn.read_stdin_as_dataframe() == data_frame
@@ -23,9 +24,12 @@ def test_convert_names_colmn_to_uppercase():
 	assert csvn.convert_names_colmn_to_uppercase(fullname) == 'MONKEY ALBERTO'
 
 def test_parse_address():
-	assert csvn.parse_address(address) == "100 Hoover Dr., Sampletown, NH"
-	assert csvn.parse_address(no_commas_address) == "Hey there this is a town"
+	assert csvn.parse_address(address) == '"100 Hoover Dr., Sampletown, NH"'
+	assert csvn.parse_address(missing_commas_address) == "Hey there this is a town"
 
 def test_parse_notes():
 	assert csvn.parse_notes(notes) == "I am the very model of a modern major general"
-	assert csvn.parse_notes(unicode_notes) == ""
+	assert csvn.parse_notes(unicode_notes) == "This is some Unicode right h�xxx ü ¡! 😀"
+
+def test_parse_duration():
+	assert csvn.parse_duration(duration_string) == 1.01
