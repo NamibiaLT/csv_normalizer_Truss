@@ -107,10 +107,24 @@ def parse_notes(notes):
 	'''
 	No transformations needed
 	The notes column is free form text input by the enduser
+
 	Return:
 	Notes, and replace invalid utf-8 chars with valid unicode characters
 	'''
 	return notes
+
+def parse_duration(duration_str):
+	'''
+	The columns `FooDuration` and `BarDuration` are in HH:MM:SS.MS
+    format (where MS is milliseconds)
+
+	Return:
+	Converted duration strings in floating point seconds format.
+	'''
+
+	hhmmss_str, millsec_str = duration_str.split('.')
+	hours, minutes, seconds = [for x in hhmmss_str.split('.')]
+	duration = hours * 3600 + minutes * 60 + seconds + int(millsec_str) / 1000
 
 def main():
 	'''
