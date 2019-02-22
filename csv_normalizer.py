@@ -118,6 +118,7 @@ def main():
 		out_row[headers.index('FullName')] =  convert_names_colmn_to_uppercase(row['FullName'])
 		out_row[headers.index('Address')] = parse_address(row['Address'])
 		out_row[headers.index('Notes')] = parse_notes(row['Notes'])
+		print(*out_row, sep=',')
 
 if __name__ == "__main__":
     main()
