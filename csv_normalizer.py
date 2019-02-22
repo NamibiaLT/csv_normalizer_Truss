@@ -1,7 +1,7 @@
 import pandas as pd
-import datetime
+from datetime import datetime
 import time
-import pytz
+from pytz import timezone
 
 
 a_file = 'sample.csv'
