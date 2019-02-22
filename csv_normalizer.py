@@ -50,18 +50,16 @@ def parse_timestamp(timestamp_str):
 
 	return timestamp_iso
 
-def format_zipcodes(data_frame):
+def format_zipcodes(zipcode):
 	'''
 	Format ZIP codes as 5 digits.
 	If there are less than 5 digits, add 0 as the prefix.
+
+	Return:
+	5-digit zipcodes
 	'''
-	zipcode_lst = []
 
-	for row in data_frame['ZIP']:
-		zipcode_lst.append((str(row).zfill(5)))
-	return zipcode_lst
-
-	updated_zipcode_lst = [int(i) for i in zipcode_lst]
+	return "%05i" % zipcode
 
 def convert_names_colmn_to_uppercase(fullname):
 	'''
