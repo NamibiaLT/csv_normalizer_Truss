@@ -7,7 +7,7 @@ def test_read_stdin_as_dataframe():
 	assert csvn.read_stdin_as_dataframe(broken_sample_file) == data_frame
 
 def test_parse_timestamp():
-		assert csvn.parse_datetime(sample_file) == data_frame['Timestamp']
+		assert csvn.parse_datetime(sample_file) == timestamp_iso
 
 def test_format_zipcodes():
 	assert csvn.format_zipcodes(sample_file)[1] == '00001'
