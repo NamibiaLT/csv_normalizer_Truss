@@ -127,6 +127,17 @@ def parse_duration(duration_str):
 	duration = hours * 3600 + minutes * 60 + seconds + int(millsec_str) / 1000
 	return "%.3f" % duration
 
+def parse_total_duration(*args):
+	'''
+	The TotalDuration column has garbage data
+	The value of the rows TotalDuration are replaced with the sum
+	of the FooDuration and BarDuration columns
+	'''
+	total_duration = 0
+	for duration in args:
+		total_duration += float(int(duration))
+	return "%.3f" % total_duration
+
 def main():
 	'''
 	Converts the csv and prints out stdin CSV to the stdout
