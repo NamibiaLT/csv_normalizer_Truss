@@ -135,7 +135,7 @@ def parse_total_duration(*args):
 	'''
 	total_duration = 0
 	for duration in args:
-		total_duration += float(int(duration))
+		total_duration += float(duration)
 	return "%.3f" % total_duration
 
 def main():
