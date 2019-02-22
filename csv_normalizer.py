@@ -63,14 +63,17 @@ def format_zipcodes(data_frame):
 
 	updated_zipcode_lst = [int(i) for i in zipcode_lst]
 
-def convert_names_colmn_to_uppercase(data_frame):
+def convert_names_colmn_to_uppercase(fullname):
 	'''
-	Conver names in names column to upper case
+	Convert names in names column to upper case
+
+	Given:
+	There will be non-English names
+
+	Return:
+	Upper case names
 	'''
-	name_column = []
-	for name in data_frame['FullName']:
-		name_column.append(str(name).upper)
-	print(name_column)
+	return fullname.upper()
 
 def main():
 	'''
