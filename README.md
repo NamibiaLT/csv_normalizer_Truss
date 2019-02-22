@@ -1,37 +1,8 @@
-_This is one of the steps in the Truss interview process. If you've
-stumbled upon this repository and are interested in a career with
-Truss, [check out our jobs page](https://truss.works/jobs)._
-
 # Truss Software Engineering Interview
 
-## Introduction and expectations
+## The CSV Normalizer App:
 
-Hi there! Please complete the problem described below to the best of
-your ability, using the tools you're most comfortable with. Assume
-you're sending your submission in for code review from peers;
-we'll be talking about your submission in your interview in that
-context.
-
-We expect this to take less than 4 hours of actual coding time. Please
-submit a working but incomplete solution instead of spending more time
-on it. We're also aware that getting after-hours coding time can be
-challenging; we'd like a submission within a week and if you need more
-time please let us know.
-
-If you have any questions, please contact hiring@truss.works; we're
-happy to help if you're not sure what we're asking for or if you have
-questions.
-
-## How to submit your response
-
-Please send hiring@truss.works a link to a public git repository
-(Github is fine) that contains your code and a README.md that tells us
-how to build and run it. Your code will be run on either macOS 10.13
-or Ubuntu 16.04 LTS, your choice.
-
-## The problem: CSV normalization
-
-Please write a tool that reads a CSV formatted file on `stdin` and
+This app is a tool that reads a CSV formatted file on `stdin` and
 emits a normalized CSV formatted file on `stdout`. Normalized, in this
 case, means:
 
@@ -77,5 +48,4 @@ Then run the following command:
 
 #### How Pytest works:
 Pytest discovers test cases by first looking for files in the `tests/` directory then looking within this directory for test files that start with the prefix `test_`.
-# csv_normalizer_app
-# csv_normalizer_Truss
+
