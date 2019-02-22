@@ -46,6 +46,4 @@ The Pytest framework was used for testing. To install pytest and run the test fi
 Then run the following command:
 `python -m pytest .`
 
-#### How Pytest works:
-Pytest discovers test cases by first looking for files in the `tests/` directory then looking within this directory for test files that start with the prefix `test_`.
 
