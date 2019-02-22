@@ -1,7 +1,10 @@
 import csv_normalizer as csvn
 
-def test_parse_datetime():
-	sample_file = csvn.parse_datetime('sample.csv')
-	broken_sample_file = csvn.parse_datetime('sample.csv')
+sample_file = 'sample.csv'
+broken_sample_file = 'sample-with-broken-utf8.csv'
 
-	assert
+def test_open_and_read_csv():
+	assert csvn.open_and_read_csv(broken_sample_file) == data_frame
+
+def test_parse_datetime():
+		assert csvn.parse_datetime(sample_file) == data_frame['Timestamp']
