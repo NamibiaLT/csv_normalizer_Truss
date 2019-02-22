@@ -163,7 +163,7 @@ def main():
 		out_row[headers.index('Notes')] = parse_notes(row['Notes'])
 		out_row[headers.index('BarDuration')] = parse_duration(row['BarDuration'])
 		out_row[headers.index('FooDuration')] = parse_duration(row['FooDuration'])
-		out_row[headers.index('TotalDuration')] = parse_total_duration(out_row[headers.index('BarDuration')], out_row[headers.index('BarDuration')])
+		out_row[headers.index('TotalDuration')] = parse_total_duration(out_row[headers.index('BarDuration')], out_row[headers.index('FooDuration')])
 		print(*out_row, sep=',')
 
 if __name__ == "__main__":
