@@ -60,4 +60,8 @@ The command will look something like this in your terminal:
 `cat sample-with-broken-utf8.csv | python3 csv_normalizer.py`
 
 ### Note:
-This code is meant to run on macOS 10.13
+* This code is meant to run on macOS 10.13
+* Areas to complete: fix two broken tests
+* Duration of test: 4 hours
+
+
