@@ -1,5 +1,5 @@
 # Truss Software Engineering Interview
-
+## Submission by: Namibia Torres
 ## The CSV Normalizer App:
 
 This app is a tool that reads a CSV formatted file on `stdin` and
@@ -29,6 +29,7 @@ case, means:
   UTF-8 characters, please replace them with the Unicode Replacement
   Character.
 
+### Assumptions and More:
 You can assume that the input document is in UTF-8 and that any times
 that are missing timezone information are in US/Pacific. If a
 character is invalid, please replace it with the Unicode Replacement
@@ -39,11 +40,24 @@ warning to `stderr` and drop the row from your output.
 You can assume that the sample data we provide will contain all date
 and time format variants you will need to handle.
 
+## Python Version:
+I am using Python 3.7
+
+## Requirements:
+To install the right versions of packages, you can do this in one go by typing the following in your terminal:
+`pip install -r requirements.txt`
 
 ## Testing
 The Pytest framework was used for testing. To install pytest and run the test file. First run:
 `pip install pytest`
-Then run the following command:
-`python -m pytest .`
+Then type the following command in your terminal:
+`pytest test_csv_normalizer.py -v`
 
+## Run app in terminal:
+#### To run the app in your terminal, type the following command:
+`cat [name_of_your_csv_fil.csv] | python3 csv_normalizer.py `
+The command will look something like this in your terminal:
+`cat sample-with-broken-utf8.csv | python3 csv_normalizer.py`
 
+### Note:
+This code is meant to run on macOS 10.13
