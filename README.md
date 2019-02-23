@@ -55,7 +55,7 @@ Then type the following command in your terminal:
 
 ## Run app in terminal:
 #### To run the app in your terminal, type the following command:
-`cat [name_of_your_csv_fil.csv] | python3 csv_normalizer.py `
+`cat [name_of_your_csv_file.csv] | python3 csv_normalizer.py `
 The command will look something like this in your terminal:
 `cat sample-with-broken-utf8.csv | python3 csv_normalizer.py`
 
