@@ -36,4 +36,4 @@ def test_parse_duration():
 	assert csvn.parse_duration(duration_string) == '1.100'
 
 def test_parse_total_duration():
-	assert csvn.parse_total_duration(duration_string, second_duration_string) == '9.100'
+	assert csvn.parse_total_duration(duration_string, second_duration_string) == '11.200'
