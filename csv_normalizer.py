@@ -114,29 +114,29 @@ def parse_notes(notes):
 	return notes
 
 def parse_duration(duration_str):
-	'''
-	The columns `FooDuration` and `BarDuration` are in HH:MM:SS.MS
+    '''
+    The columns `FooDuration` and `BarDuration` are in HH:MM:SS.MS
     format (where MS is milliseconds)
 
-	Return:
-	Converted duration strings in floating point seconds format.
-	'''
+    Return:
+    Converted duration strings in floating point seconds format.
+    '''
 
-	hhmmss_str, millsec_str = duration_str.split('.')
-	hours, minutes, seconds = [int(x) for x in hhmmss_str.split(':')]
-	duration = hours * 3600 + minutes * 60 + seconds + int(millsec_str) / 1000
-	return "%.3f" % duration
+    hhmmss_str, millsec_str = duration_str.split('.')
+    hours, minutes, seconds = [int(x) for x in hhmmss_str.split(':')]
+    duration = hours * 3600 + minutes * 60 + seconds + int(millsec_str) / 1000
+    return "%.3f" % duration
 
 def parse_total_duration(*args):
-	'''
-	The TotalDuration column has garbage data
-	The value of the rows TotalDuration are replaced with the sum
-	of the FooDuration and BarDuration columns
-	'''
-	total_duration = 0
-	for duration in args:
-		total_duration += float(duration)
-	return "%.3f" % total_duration
+    '''
+    The TotalDuration column has garbage data
+    The value of the rows TotalDuration are replaced with the sum
+    of the FooDuration and BarDuration columns
+    '''
+    total_duration = 0
+    for duration in args:
+        total_duration += float(parse_duration(duration))
+    return "%.3f" % total_duration
 
 def main():
 	'''
