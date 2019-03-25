@@ -12,8 +12,8 @@ unicode_notes = "This is some Unicode right h�xxx ü ¡! 😀"
 duration_string = "00:00:01.100"
 second_duration_string = "00:00:10.100"
 
-def test_read_stdin_as_dataframe():
-	assert csvn.read_stdin_as_dataframe() == data_frame
+# def test_read_stdin_as_dataframe():
+# 	assert csvn.read_stdin_as_dataframe() == data_frame
 
 def test_parse_timestamp():
 		assert csvn.parse_timestamp(timestamp) == '2019-10-20T04:00:00-04:00'
@@ -36,4 +36,4 @@ def test_parse_duration():
 	assert csvn.parse_duration(duration_string) == '1.100'
 
 def test_parse_total_duration():
-	assert csvn.parse_total_duration(duration_string, second_duration_string) == '9.100'
+	assert csvn.parse_total_duration(duration_string, second_duration_string) == '11.200'
