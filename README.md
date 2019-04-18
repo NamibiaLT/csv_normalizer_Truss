@@ -1,5 +1,3 @@
-# Truss Software Engineering Interview
-## Submission by: Namibia Torres
 ## The CSV Normalizer App:
 
 This app is a tool that reads a CSV formatted file on `stdin` and
@@ -61,7 +59,3 @@ The command will look something like this in your terminal:
 
 ### Note:
 * This code is meant to run on macOS 10.13
-* Areas to complete: fix two broken tests
-* Duration of test: 4 hours
-
-
